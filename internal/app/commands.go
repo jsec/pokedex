@@ -76,7 +76,7 @@ func commandHelp() error {
 }
 
 func commandMap(p *api.PokeApi) error {
-	p.GetLocationAreas(*p.Next)
+	p.GetLocationAreas(p.Next)
 
 	for _, location := range p.LocationAreas {
 		fmt.Println(location.Name)
@@ -86,7 +86,7 @@ func commandMap(p *api.PokeApi) error {
 }
 
 func commandMapb(p *api.PokeApi) error {
-	p.GetLocationAreas(*p.Previous)
+	p.GetLocationAreas(p.Previous)
 
 	for _, location := range p.LocationAreas {
 		fmt.Println(location.Name)
