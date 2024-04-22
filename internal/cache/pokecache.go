@@ -48,11 +48,11 @@ func (c *Cache) Get(key *string) ([]byte, bool) {
 
 	entry, ok := c.cache[*key]
 	if !ok {
-		fmt.Println("cache miss for key:", key)
+		fmt.Println("cache miss for key:", *key)
 		return nil, false
 	}
 
-	fmt.Println("cache hit for key:", key)
+	fmt.Println("cache hit for key:", *key)
 	return entry.value, true
 }
 

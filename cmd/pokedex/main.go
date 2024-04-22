@@ -12,13 +12,14 @@ import (
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	pokeApi := api.Create("https://pokeapi.co/api/v2/location-area")
+	pokeApi := api.NewPokeApi()
 
 	for {
 		fmt.Print("Pokedex > ")
 		scanner.Scan()
 		input := strings.TrimSpace(scanner.Text())
-		err := app.ExecCommand(&pokeApi, input)
+		params := strings.Split(input, " ")
+		err := app.ExecCommand(&pokeApi, params)
 		if err != nil {
 			fmt.Println(err.Error())
 		}
